@@ -59,7 +59,7 @@
 
 对于没有在‘文件名_级别.xlsx’中声明的所有文件（包括有拼写错误的文件），程序会默认将该文件优先级赋值为999，同时再点击写入文档按钮之后程序底部的运行日志框中会出现如下内容：
 *******************************************
-（注意！）C:\Users\79192\OneDrive\桌面\WordImageInserter\data\SRU2 38G-20240801\MASK\ENV2\B\28M\1024QAMlightPNG.PNG -> 排序 key: (1, 2, 1, 1, 999)
+（注意！）C:\Users\79192\OneDrive\桌面\WordImageInserter\data\folder\1.1\2.2\3.1\4.1\5.1PNG.PNG -> 排序 key: (1, 2, 1, 1, 999)
 该路径中可能存在文件名拼写错误或未在‘文件名_级别.xlsx’中声明该文件，请检查。
 *******************************************
 可以看见这里的图片文件夹有五级，它们各自的优先级为(1, 2, 1, 1, 999)，最后一级文件也就是”1024QAMlightPNG.PNG“优先度被赋值999，代表该文件没有被声明或存在拼写或大小写错误。
@@ -133,7 +133,7 @@ Image not inserted? → Make sure the image format is correct and Excel is prope
 
 If a file is not declared in ‘filename_priority.xlsx’ (e.g. due to a typo), the program will assign it priority 999 and display the following message in the log box after clicking “Write to Document”:
 *******************************************
-(Warning!) C:\Users\Example\WordImageInserter\data\SRU2 38G-20240801\MASK\ENV2\B\28M\1024QAMlightPNG.PNG -> sort key: (1, 2, 1, 1, 999)
+(Warning!) C:\Users\Example\WordImageInserter\data\folder\1.1\2.2\3.1\4.1\5.1PNG.PNG.PNG -> sort key: (1, 2, 1, 1, 999)
 This may indicate a filename typo or missing declaration in 'filename_priority.xlsx'. Please check.
 *******************************************
 
