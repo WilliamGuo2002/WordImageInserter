@@ -70,3 +70,74 @@
 - 所有文件夹名、图片名区分大小写
 - 如果图片较多建议分批处理
 
+-----------------------------------------------------------------------------
+
+# WordImageInserter
+---------------------------------------------------------------------------
+This program is used to batch insert images from nested folders into a Word report template, sorted according to a multi-level directory structure.
+---------------------------------------------------------------------------
+# Required File Structure 
+Main Directory (any name)
+├── WordImageInserter.exe
+├── data
+├── filename_priority.xlsx
+├── image_name_mapping.xlsx
+├── template.docx
+
+---------------------------------------------------------------------------
+# Required File Descriptions (all files must be in the same directory)
+1. image_name_mapping.xlsx
+- Column 1: Original image filename (without extension)
+- Column 2: Mapped name (to be shown as the image title in Word)
+- Start from row 2; row 1 is the header and will not be read
+
+2. Word Template (template.docx)
+- Can predefine headers, footers, fonts, etc.; the body can remain empty
+
+3. data folder
+- Place your image folders inside this folder
+
+4. filename_priority.xlsx
+- Stores the reading priority of each folder/file at every level
+
+---------------------------------------------------------------------------
+# Features
+- Automatically detects folder levels
+- Inserts 6 images per page (3 rows, 2 columns per table)
+- Automatic pagination and total page numbering
+- Automatically adds image captions
+- Supports name mapping, e.g., 5.2 → file2 (from image_name_mapping.xlsx)
+
+---------------------------------------------------------------------------
+# Instructions
+Step 1: Prepare image directories
+- Images must be one of: .png, .jpg, .jpeg, .bmp
+- Folder names must match Excel entries exactly (case-sensitive, no extra spaces)
+- Place the folder into the "data" directory
+
+Step 2: Fill in priority and name mapping Excel files
+- Every two columns define a level (e.g., level 1 folder + priority)
+
+Step 3: Run the program
+- Launch WordImageInserter.exe
+- Upon launch, the program will read filename_priority.xlsx and display the folder priorities
+- If you modify filename_priority.xlsx during runtime, click "Reload Priority" to refresh
+- Click “Write to Document”
+- After a few seconds, a file named “output.docx” will be generated in the same directory
+
+---------------------------------------------------------------------------
+# Common Issues
+Wrong image order? → Check if all folders are defined in Excel, and ensure correct case and spelling.
+Wrong image title? → Ensure the image name is correctly listed in "image_name_mapping.xlsx" (without extension)
+Image not inserted? → Make sure the image format is correct and Excel is properly saved
+
+If a file is not declared in ‘filename_priority.xlsx’ (e.g. due to a typo), the program will assign it priority 999 and display the following message in the log box after clicking “Write to Document”:
+*******************************************
+(Warning!) C:\Users\Example\WordImageInserter\data\SRU2 38G-20240801\MASK\ENV2\B\28M\1024QAMlightPNG.PNG -> sort key: (1, 2, 1, 1, 999)
+This may indicate a filename typo or missing declaration in 'filename_priority.xlsx'. Please check.
+*******************************************
+
+---------------------------------------------------------------------------
+# Notes
+- Folder and file names are case-sensitive
+- For large numbers of images, consider processing in smaller batches
