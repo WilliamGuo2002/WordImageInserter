@@ -69,7 +69,7 @@
 # 注意事项
 - 所有文件夹名、图片名区分大小写
 - 如果图片较多建议分批处理
-
+- License MIT License – 可随意使用和修改
 -----------------------------------------------------------------------------
 
 # WordImageInserter
@@ -141,3 +141,4 @@ This may indicate a filename typo or missing declaration in 'filename_priority.x
 # Notes
 - Folder and file names are case-sensitive
 - For large numbers of images, consider processing in smaller batches
+- License MIT License – free to use and modify.
